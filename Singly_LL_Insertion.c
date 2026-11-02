@@ -18,7 +18,7 @@ void insert_beginning()
 
   if (new1 == NULL)
   {
-    printf("Overflow !");
+    printf("Memory Overflow !");
     return;
   }
 
@@ -30,7 +30,7 @@ void insert_beginning()
 }
 
 // inserting node at the end
-insert_end()
+void insert_end()
 {
   struct node *new2;
 
@@ -52,6 +52,33 @@ insert_end()
 
   ptr2->next = new2;
   new2->next = NULL;
+}
+
+void before_node()
+{
+  struct node *new3;
+
+  new3 = (struct node *)malloc(sizeof(struct node));
+
+  struct node *prev = NULL;
+  struct node *ptr3 = head;
+
+  int item;
+  printf("\nEnter data value before which you want to perform insertion : ");
+  scanf("%d", &item);
+
+  int value;
+  printf("Enter value to insert : ");
+  scanf("%d", &new3->data);
+
+  while (ptr3->data != item)
+  {
+    prev = ptr3;
+    ptr3 = ptr3->next;
+  }
+
+  new3->next = ptr3;
+  prev->next = new3;
 }
 
 // displaying the whole linked list
@@ -82,6 +109,8 @@ int main()
   insert_beginning(); // 4
   insert_end();       // 5
 
-  Display(); // 4,3,2,1,5
+  before_node();
+
+  Display();
   return 0;
 }
