@@ -1,0 +1,8 @@
+TokenNumber,CustomerName,Service,Status
+1,RICHA,Passbook Update,Cancelled
+2,Richi,Cash Deposit,Cancelled
+3,ridham,Cash Withdrawal,Cancelled
+4,richi,Cash Withdrawal,Cancelled
+5,Michel,Passbook Update,Completed
+6,Priya,Cash Withdrawal,In Progress
+7,richa,Cash Deposit,Waiting
