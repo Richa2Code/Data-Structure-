@@ -219,13 +219,14 @@ void del_specific()
   printf("\nEnter data value of node that you want to be deleted.");
   scanf("%d", &value);
 
-  while (ptr6->data != value)
+  while (ptr6 != NULL && ptr6->data != value)
   {
     prev3 = ptr6;
     ptr6 = ptr6->next;
   }
 
   prev3->next = ptr6->next;
+  head = prev3;
   free(ptr6);
 }
 
@@ -247,6 +248,36 @@ void Display()
     ptr = ptr->next;
   }
   printf("\n");
+}
+
+// Searching any node
+void searching_node()
+{
+  struct node *ptr7 = head;
+  int value2;
+
+  if (head == NULL)
+  {
+    printf("\nList is empty!");
+    return;
+  }
+
+  printf("\nEnter the value you want to search : ");
+  scanf("%d", &value2);
+
+  printf("\nSearching started...");
+  while (ptr7 != NULL && ptr7->data != value2)
+  {
+    ptr7 = ptr7->next;
+  }
+
+  if (ptr7 == NULL)
+  {
+    printf("\nSorry, Node not found !");
+    return;
+  }
+
+  printf("Yes,\nYour desired node %d is present in linked list.", ptr7->data);
 }
 
 int main()
@@ -272,5 +303,6 @@ int main()
 
   del_specific();
   Display();
+  searching_node();
   return 0;
 }
