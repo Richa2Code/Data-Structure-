@@ -178,6 +178,30 @@ void del_begin()
     head = ptr5;
   }
 }
+
+// Deletion at the end
+void del_end()
+{
+  printf("\nDeletion done at the end.");
+  struct node *ptr5 = head;
+  struct node *prev2;
+
+  if (head == NULL)
+  {
+    printf("\nList is empty!\nNothing to delete.\n");
+    return;
+  }
+
+  while (ptr5->next != NULL)
+  {
+    prev2 = ptr5;
+    ptr5 = ptr5->next;
+  }
+  printf("\nDeleted item : %d", ptr5);
+  prev2->next = NULL;
+  free(ptr5);
+}
+
 // displaying the whole linked list
 void Display()
 {
@@ -209,6 +233,7 @@ int main()
   after_node();
   before_node();
   del_begin();
+  del_end();
   Display();
   return 0;
 }
