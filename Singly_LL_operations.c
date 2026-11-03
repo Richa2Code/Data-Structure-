@@ -66,6 +66,7 @@ void insert_end()
   ptr2->next = new2;
 }
 
+// Inserting node before the given node
 void before_node()
 {
   printf("\nInsertion before the given node started");
@@ -197,9 +198,35 @@ void del_end()
     prev2 = ptr5;
     ptr5 = ptr5->next;
   }
-  printf("\nDeleted item : %d", ptr5);
-  prev2->next = NULL;
+  printf("\nDeleted item : %d", ptr5->data);
+  prev2->next = ptr5->next;
+  printf("%d", prev2->next);
   free(ptr5);
+}
+
+// Deletion of specific node
+void del_specific()
+{
+  printf("\nDeletion of given node started.\n");
+  struct node *ptr6 = head;
+  struct node *prev3;
+  int value;
+
+  if (head == NULL)
+  {
+    printf("\nList is empty!");
+  }
+  printf("\nEnter data value of node that you want to be deleted.");
+  scanf("%d", &value);
+
+  while (ptr6->data != value)
+  {
+    prev3 = ptr6;
+    ptr6 = ptr6->next;
+  }
+
+  prev3->next = ptr6->next;
+  free(ptr6);
 }
 
 // displaying the whole linked list
@@ -229,11 +256,21 @@ int main()
   insert_end();
   insert_end();
   insert_end();
+  Display();
 
   after_node();
+  Display();
+
   before_node();
+  Display();
+
   del_begin();
+  Display();
+
   del_end();
+  Display();
+
+  del_specific();
   Display();
   return 0;
 }
