@@ -161,6 +161,23 @@ void after_node()
   }
 }
 
+// Deletion at the beginning
+void del_begin()
+{
+  struct node *ptr5 = head;
+  if (head == NULL)
+  {
+    printf("List is empty. Nothing to delete.");
+    return;
+  }
+  else
+  {
+    printf("\nDeletion done at the beginning.\nDeleted data : %d", head->data);
+    ptr5 = head->next;
+    free(head);
+    head = ptr5;
+  }
+}
 // displaying the whole linked list
 void Display()
 {
@@ -191,7 +208,7 @@ int main()
 
   after_node();
   before_node();
-
+  del_begin();
   Display();
   return 0;
 }
