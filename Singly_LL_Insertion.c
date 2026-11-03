@@ -10,8 +10,10 @@ struct node
 };
 struct node *head = NULL;
 
+// Insertion at the beginning
 void insert_beginning()
 {
+  printf("Insertion at the beginning strted\n ");
   struct node *new1;
 
   new1 = (struct node *)malloc(sizeof(struct node));
@@ -32,6 +34,7 @@ void insert_beginning()
 // inserting node at the end
 void insert_end()
 {
+  printf("\nInsertion at the end started.");
   struct node *new2;
 
   if (head == NULL)
@@ -65,6 +68,7 @@ void insert_end()
 
 void before_node()
 {
+  printf("\nInsertion before the given node started");
   struct node *new3;
   struct node *prev = NULL;
   struct node *ptr3 = head;
@@ -116,6 +120,47 @@ void before_node()
   }
 }
 
+// Insertion after a given node
+void after_node()
+{
+  printf("\nInsertion after the given node stated from here !");
+  struct node *new4;
+  struct node *ptr4 = head;
+  struct node *temp;
+
+  int item2;
+
+  if (head == NULL)
+  {
+    printf("List is empty !");
+    return;
+  }
+
+  new4 = (struct node *)malloc(sizeof(struct node));
+
+  printf("\n Enter the data value after ehich you want insertion : ");
+  scanf("%d", &item2);
+
+  printf("\nEnter the data : ");
+  scanf("%d", &new4->data);
+
+  while (ptr4->data != item2)
+  {
+    ptr4 = ptr4->next;
+  }
+
+  if (ptr4 == NULL)
+  {
+    printf("Given node %d is not exist in list.", item2);
+  }
+  else
+  {
+    temp = ptr4->next;
+    ptr4->next = new4;
+    new4->next = temp;
+  }
+}
+
 // displaying the whole linked list
 void Display()
 {
@@ -144,6 +189,7 @@ int main()
   insert_end();
   insert_end();
 
+  after_node();
   before_node();
 
   Display();
