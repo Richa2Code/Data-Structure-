@@ -62,10 +62,42 @@ void Display()
   printf("\n");
 }
 
+// Insertion at the end
+void insert_end()
+{
+  printf("Insertion at te end started!.\n");
+  struct node *new2;
+  struct node *ptr1 = head;
+
+  new2 = (struct node *)malloc(sizeof(struct node));
+
+  if (head == NULL)
+  {
+    printf("List is empty.\n");
+  }
+
+  printf("Enter the data : ");
+  scanf("%d", &new2->data);
+
+  while (ptr1->next != NULL)
+  {
+    ptr1 = ptr1->next;
+  }
+
+  ptr1->next = new2;
+  new2->prev = ptr1;
+  new2->next = NULL;
+}
+
 int main()
 {
   insert_begin();
   insert_begin();
+  insert_begin();
+  insert_begin();
+  Display();
+
+  insert_end();
   Display();
   return 0;
 }
