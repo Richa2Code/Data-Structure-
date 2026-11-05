@@ -182,11 +182,13 @@ int main()
   insert_end();
   insert_end();
   insert_end();
-
   Display();
+
   insert_before();
   Display();
+
   insert_after();
   Display();
+
   return 0;
 }
