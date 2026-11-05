@@ -50,7 +50,34 @@ void insert_begin()
   new1->next = ptr1->next;
   head = new1;
   ptr1->next = head;
-  printf("%d, ", head->data);
+}
+
+// Insertion at the end
+void insert_end()
+{
+  printf("\nInsertion at the end started.\n");
+  struct node *new2;
+  struct node *ptr2 = head;
+  // struct node *temp;
+
+  new2 = (struct node *)malloc(sizeof(struct node));
+  printf("Enter the value : ");
+  scanf("%d", &new2->data);
+
+  if (head == NULL)
+  {
+    printf("List is empty!\nNow, Performing Insertion at the beginning.\n");
+    insert_begin();
+    return;
+  }
+
+  while (ptr2->next != head)
+  {
+    ptr2 = ptr2->next;
+  }
+  // temp = ptr2->next;
+  ptr2->next = new2;
+  new2->next = head;
 }
 
 // Displaying List nodes
@@ -58,7 +85,6 @@ void Display()
 {
 
   printf("\nDisplay process started !\n");
-  printf("%d", head->data);
   struct node *ptr = head;
 
   if (head == NULL)
@@ -73,7 +99,7 @@ void Display()
     printf("%d, ", ptr->data);
     ptr = ptr->next;
   }
-  printf("%d", ptr->data);
+  printf("%d", ptr->data); // It will print last inserted node.So compulsory require.
   printf("\n");
 }
 
@@ -82,9 +108,9 @@ int main()
   insert_begin();
   insert_begin();
   insert_begin();
-  insert_begin();
-  insert_begin();
-  insert_begin();
+  insert_end();
+  insert_end();
+  insert_end();
 
   Display();
 
