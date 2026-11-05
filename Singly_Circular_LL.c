@@ -151,6 +151,28 @@ void insert_after()
   ptr4->next = new4;
 }
 
+// Deletion of beginning
+void del_begin()
+{
+  struct node *ptr5 = head;
+
+  if (head == NULL)
+  {
+    printf("\nList is empty.\nNothing to delete.");
+    return;
+  }
+
+  while (ptr5->next != head)
+  {
+    ptr5 = ptr5->next;
+  }
+
+  head = head->next;
+  free(ptr5->next);
+  ptr5->next = head;
+  printf("\nDeletion done!\n");
+}
+
 // Displaying List nodes
 void Display()
 {
@@ -176,6 +198,7 @@ void Display()
 
 int main()
 {
+  del_begin();
   insert_begin();
   insert_begin();
   insert_begin();
@@ -188,6 +211,9 @@ int main()
   Display();
 
   insert_after();
+  Display();
+
+  del_begin();
   Display();
 
   return 0;
