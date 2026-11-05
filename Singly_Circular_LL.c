@@ -93,7 +93,8 @@ void insert_before()
 
   if (head == NULL)
   {
-    printf("List is empty.");
+    printf("\nList is empty.\nLet's make first node.");
+    insert_begin();
     return;
   }
 
@@ -116,6 +117,38 @@ void insert_before()
 
   new3->next = prev1->next;
   prev1->next = new3;
+}
+
+// Insertion after given node
+void insert_after()
+{
+  printf("\nInsertion after the given node started .\n");
+  struct node *new4;
+  struct node *ptr4 = head;
+
+  int item2;
+
+  new4 = (struct node *)malloc(sizeof(struct node));
+
+  if (head == NULL)
+  {
+    printf("\nList is empty!\nLets make first node.");
+    insert_begin();
+    return;
+  }
+
+  printf("\nEnter the value after which you want to insertion to be happened : ");
+  scanf("%d", &item2);
+  printf("\nEnter the value : ");
+  scanf("%d", &new4->data);
+
+  while (ptr4->data != item2)
+  {
+    ptr4 = ptr4->next;
+  }
+
+  new4->next = ptr4->next;
+  ptr4->next = new4;
 }
 
 // Displaying List nodes
@@ -152,6 +185,8 @@ int main()
 
   Display();
   insert_before();
+  Display();
+  insert_after();
   Display();
   return 0;
 }
