@@ -154,6 +154,7 @@ void insert_after()
 // Deletion of beginning
 void del_begin()
 {
+  printf("Deletion at the beginning started.");
   struct node *ptr5 = head;
 
   if (head == NULL)
@@ -193,6 +194,40 @@ void del_end()
 
   prev2->next = head;
   free(ptr6);
+}
+
+// Deletion of specific node
+void del_specific()
+{
+  struct node *ptr7 = head;
+  struct node *prev3;
+
+  int item3;
+
+  printf("Deletion of specific node started.\n");
+
+  if (head == NULL)
+  {
+    printf("List is empty. Nothing to delete.");
+  }
+
+  printf("Enter the value you want to delete : ");
+  scanf("%d", &item3);
+
+  while (ptr7->data != item3)
+  {
+    prev3 = ptr7;
+    ptr7 = ptr7->next;
+  }
+
+  if (ptr7 == NULL)
+  {
+    printf("\nDesired node not found!\n");
+    return;
+  }
+
+  prev3->next = ptr7->next;
+  free(ptr7);
 }
 
 // Displaying List nodes
@@ -239,6 +274,9 @@ int main()
   Display();
 
   del_end();
+  Display();
+
+  del_specific();
   Display();
 
   return 0;
