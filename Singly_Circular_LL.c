@@ -173,6 +173,28 @@ void del_begin()
   printf("\nDeletion done!\n");
 }
 
+// Deletion at the end
+void del_end()
+{
+  printf("Deletion at the end started\n");
+  struct node *prev2;
+  struct node *ptr6 = head;
+
+  if (head == NULL)
+  {
+    printf("List is empty. Nothing to delete.");
+  }
+
+  while (ptr6->next != head)
+  {
+    prev2 = ptr6;
+    ptr6 = ptr6->next;
+  }
+
+  prev2->next = head;
+  free(ptr6);
+}
+
 // Displaying List nodes
 void Display()
 {
@@ -214,6 +236,9 @@ int main()
   Display();
 
   del_begin();
+  Display();
+
+  del_end();
   Display();
 
   return 0;
