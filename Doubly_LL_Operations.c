@@ -41,27 +41,6 @@ void insert_begin()
   }
 }
 
-// Display Process
-void Display()
-{
-  printf("\nDisplaying started.\n");
-  struct node *ptr = head;
-
-  if (head == NULL)
-  {
-    printf("List is empty !");
-    return;
-  }
-
-  printf("Doubly Linked List : ");
-  while (ptr != NULL)
-  {
-    printf("%d, ", ptr->data);
-    ptr = ptr->next;
-  }
-  printf("\n");
-}
-
 // Insertion at the end
 void insert_end()
 {
@@ -87,6 +66,26 @@ void insert_end()
   ptr1->next = new2;
   new2->prev = ptr1;
   new2->next = NULL;
+}
+// Display Process
+void Display()
+{
+  printf("\nDisplaying started.\n");
+  struct node *ptr = head;
+
+  if (head == NULL)
+  {
+    printf("List is empty !");
+    return;
+  }
+
+  printf("Doubly Linked List : ");
+  while (ptr != NULL)
+  {
+    printf("%d, ", ptr->data);
+    ptr = ptr->next;
+  }
+  printf("\n");
 }
 
 int main()
