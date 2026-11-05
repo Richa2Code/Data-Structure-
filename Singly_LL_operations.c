@@ -1,4 +1,13 @@
 // All the operatio for the singly linked list
+/*
+1. Insertion at beginning
+2. Insertion at end
+3. Insertion before given node
+4. Insertion after given node
+5. deletion at beginning
+6. deletion at end
+7. deletion at specific position
+*/
 
 // Insertion at the beginning
 #include <stdio.h>
