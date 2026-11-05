@@ -80,6 +80,44 @@ void insert_end()
   new2->next = head;
 }
 
+// Insertion before given node
+void insert_before()
+{
+  printf("Insertion before given node started !\n");
+  struct node *new3;
+  struct node *ptr3 = head;
+  struct node *prev1;
+  int item1;
+
+  new3 = (struct node *)malloc(sizeof(struct node));
+
+  if (head == NULL)
+  {
+    printf("List is empty.");
+    return;
+  }
+
+  printf("Enter the value before which you want insertion to be happened : ");
+  scanf("%d", &item1);
+
+  printf("\nEnter the value : ");
+  scanf("%d", &new3->data);
+
+  while (ptr3->data != item1)
+  {
+    printf("%d", item1);
+    prev1 = ptr3;
+    ptr3 = ptr3->next;
+  }
+  if (ptr3 == NULL)
+  {
+    printf("\nSorry, %d is not present in linked list.", item1);
+  }
+
+  new3->next = prev1->next;
+  prev1->next = new3;
+}
+
 // Displaying List nodes
 void Display()
 {
@@ -113,6 +151,7 @@ int main()
   insert_end();
 
   Display();
-
+  insert_before();
+  Display();
   return 0;
 }
