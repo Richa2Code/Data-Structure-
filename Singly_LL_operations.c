@@ -224,9 +224,14 @@ void del_specific()
     prev3 = ptr6;
     ptr6 = ptr6->next;
   }
+  if (ptr6 == head)
+  {
+    prev3->next = ptr6->next;
+    head = head->next;
+    free(ptr6);
+  }
 
   prev3->next = ptr6->next;
-  head = prev3;
   free(ptr6);
 }
 
