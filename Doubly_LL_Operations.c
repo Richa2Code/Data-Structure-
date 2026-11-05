@@ -46,7 +46,7 @@ void insert_end()
 {
   printf("Insertion at te end started!.\n");
   struct node *new2;
-  struct node *ptr1 = head;
+  struct node *ptr2 = head;
 
   new2 = (struct node *)malloc(sizeof(struct node));
 
@@ -58,15 +58,57 @@ void insert_end()
   printf("Enter the data : ");
   scanf("%d", &new2->data);
 
-  while (ptr1->next != NULL)
+  while (ptr2->next != NULL)
   {
-    ptr1 = ptr1->next;
+    ptr2 = ptr2->next;
   }
 
-  ptr1->next = new2;
-  new2->prev = ptr1;
+  ptr2->next = new2;
+  new2->prev = ptr2;
   new2->next = NULL;
 }
+
+// Insertion beforegiven node
+void insert_before()
+{
+  printf("Insertion before the given node started \n");
+  struct node *new3;
+  struct node *ptr3 = head;
+
+  int item1;
+
+  new3 = (struct node *)malloc(sizeof(struct node));
+
+  if (head == NULL)
+  {
+    printf("List is empty.Lets make first node.\n");
+    insert_begin();
+    return;
+  }
+  else
+  {
+    printf("Enter node data before which you want insertion : ");
+    scanf("%d", &item1);
+
+    printf("Enter the data : ");
+    scanf("%d", &new3->data);
+
+    while (ptr3->data != item1)
+    {
+      ptr3 = ptr3->next;
+    }
+    if (ptr3 == NULL)
+    {
+      printf("Desired node data %d is not present in linked list.", item1);
+      return;
+    }
+    new3->prev = ptr3->prev;
+    ptr3->prev->next = new3;
+    new3->next = ptr3;
+    ptr3->prev = new3;
+  }
+}
+
 // Display Process
 void Display()
 {
@@ -80,11 +122,12 @@ void Display()
   }
 
   printf("Doubly Linked List : ");
-  while (ptr != NULL)
+  while (ptr->next != NULL)
   {
     printf("%d, ", ptr->data);
     ptr = ptr->next;
   }
+  printf("%d", ptr->data);
   printf("\n");
 }
 
@@ -97,6 +140,9 @@ int main()
   Display();
 
   insert_end();
+  Display();
+
+  insert_before();
   Display();
   return 0;
 }
