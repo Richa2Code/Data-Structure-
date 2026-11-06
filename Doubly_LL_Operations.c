@@ -181,8 +181,33 @@ void del_end()
     ptr6 = ptr6->next;
   }
 
+  // main logic
   ptr6->prev->next = NULL;
   free(ptr6);
+}
+
+// Deletion of specific node
+void del_specific()
+{
+  struct node *ptr7 = head;
+  int item3;
+
+  if (head == NULL)
+  {
+    printf("List is empty \n");
+    return;
+  }
+
+  printf("Enter data value which youwant to delete : ");
+  scanf("%d", &item3);
+
+  while (ptr7->data != item3)
+  {
+    ptr7 = ptr7->next;
+  }
+
+  ptr7->prev->next = ptr7->next;
+  ptr7->next->prev = ptr7->prev;
 }
 
 // Display Process
@@ -239,7 +264,7 @@ void backw_tra()
     return;
   }
 
-  printf("\nBackward Direct ion Traversal : \n");
+  printf("\nBackward Direction Traversal : \n");
   while (ptrb->next != NULL)
   {
     ptrb = ptrb->next;
@@ -279,5 +304,7 @@ int main()
   del_end();
   Display();
 
+  del_specific();
+  Display();
   return 0;
 }
