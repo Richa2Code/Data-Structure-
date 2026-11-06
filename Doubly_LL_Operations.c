@@ -164,6 +164,27 @@ void del_begin()
   free(ptr5);
 }
 
+// Deletion of end
+void del_end()
+{
+  printf("\nDeletion at the end started \n");
+  struct node *ptr6 = head;
+
+  if (head == NULL)
+  {
+    printf("List is empty.");
+    return;
+  }
+
+  while (ptr6->next != NULL)
+  {
+    ptr6 = ptr6->next;
+  }
+
+  ptr6->prev->next = NULL;
+  free(ptr6);
+}
+
 // Display Process
 void Display()
 {
@@ -218,7 +239,6 @@ void backw_tra()
     return;
   }
 
-  printf("%d", ptrb->data);
   printf("\nBackward Direct ion Traversal : \n");
   while (ptrb->next != NULL)
   {
@@ -255,5 +275,9 @@ int main()
 
   del_begin();
   Display();
+
+  del_end();
+  Display();
+
   return 0;
 }
