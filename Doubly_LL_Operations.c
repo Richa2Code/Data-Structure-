@@ -1,4 +1,14 @@
 // All operations done with Doubly Linked List
+/*
+  1. Insertion at beginning
+  2. Insertion at end
+  3. Insertion Before given node
+  4. Insertion after given node
+  5. Deletion at beginning
+  6. Deletion at end
+  7. Deletion of specific node
+  8. Forward and Backward Traversal
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
