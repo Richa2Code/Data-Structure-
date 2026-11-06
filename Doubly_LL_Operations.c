@@ -147,6 +147,23 @@ void insert_after()
   new4->prev = ptr4;
 }
 
+// Deletion from beginning
+void del_begin()
+{
+  printf("Deletion at the beginning started.\n");
+  struct node *ptr5 = head;
+
+  if (head == NULL)
+  {
+    printf("List is empty.");
+    return;
+  }
+
+  ptr5->next->prev = NULL;
+  head = head->next;
+  free(ptr5);
+}
+
 // Display Process
 void Display()
 {
@@ -234,6 +251,9 @@ int main()
   Display();
 
   insert_after();
+  Display();
+
+  del_begin();
   Display();
   return 0;
 }
