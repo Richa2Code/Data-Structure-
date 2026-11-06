@@ -68,7 +68,7 @@ void insert_end()
   new2->next = NULL;
 }
 
-// Insertion beforegiven node
+// Insertion before given node
 void insert_before()
 {
   printf("Insertion before the given node started \n");
@@ -109,6 +109,44 @@ void insert_before()
   }
 }
 
+// Insertion after given node
+void insert_after()
+{
+  printf("Insertion after given node started.\n");
+  struct node *new4;
+  int item2;
+  struct node *ptr4 = head;
+  new4 = (struct node *)malloc(sizeof(struct node));
+
+  if (head == NULL)
+  {
+    insert_begin();
+    return;
+  }
+
+  printf("Enter the data value after which you want insertion : ");
+  scanf("%d", &item2);
+
+  printf("Enter the data : ");
+  scanf("%d", &new4->data);
+
+  while (ptr4->data != item2)
+  {
+    ptr4 = ptr4->next;
+  }
+
+  if (ptr4 == NULL)
+  {
+    printf("node data %d is not present in list.", item2);
+    return;
+  }
+
+  new4->next = ptr4->next;
+  ptr4->next->prev = new4;
+  ptr4->next = new4;
+  new4->prev = ptr4;
+}
+
 // Display Process
 void Display()
 {
@@ -143,6 +181,9 @@ int main()
   Display();
 
   insert_before();
+  Display();
+
+  insert_after();
   Display();
   return 0;
 }
