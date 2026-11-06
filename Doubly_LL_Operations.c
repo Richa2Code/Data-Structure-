@@ -169,6 +169,53 @@ void Display()
   printf("\n");
 }
 
+// Forward Traversal
+void forw_tra()
+{
+  struct node *ptrf = head;
+
+  if (head == NULL)
+  {
+    printf("List is empty!");
+    return;
+  }
+
+  printf("\nForward Direction Traversal : \n");
+  while (ptrf != NULL)
+  {
+    printf("%d, ", ptrf->data);
+    ptrf = ptrf->next;
+  }
+  printf("\n");
+}
+
+// Backward Traversal
+void backw_tra()
+{
+
+  struct node *ptrb = head;
+
+  if (head == NULL)
+  {
+    printf("List is empty!");
+    return;
+  }
+
+  printf("%d", ptrb->data);
+  printf("\nBackward Direct ion Traversal : \n");
+  while (ptrb->next != NULL)
+  {
+    ptrb = ptrb->next;
+  }
+
+  while (ptrb != NULL)
+  {
+    printf("%d, ", ptrb->data);
+    ptrb = ptrb->prev;
+  }
+  printf("\n");
+}
+
 int main()
 {
   insert_begin();
@@ -178,8 +225,11 @@ int main()
   Display();
 
   insert_end();
+  insert_end();
   Display();
 
+  forw_tra();
+  backw_tra();
   insert_before();
   Display();
 
